@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% if !user.vip.blank? %>
+        <td><strong>Vip</strong></td>
+        <% end %>
+        <td><%= user.vip %></td>
+        <% if !user.administrator.blank? %>
+        <td><strong>Administrator</strong></td>
+        <% end %>
+        <td><%= user.administrator %></td>
+        <% if !user.standard.blank? %>
+        <td><strong>Standard</strong></td>
+        <% end %>
+        <td><%= user.standard %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
